@@ -1,0 +1,19 @@
+<div class="container">
+  <h1 class="text-center">New Project</h1>
+  <div class="row">
+    <div class="col-md-8 offset-2">
+      <%= simple_form_for @project do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+
+        <h2>Tasks :</h2>
+        <%= f.simple_fields_for :tasks, Task.new do |f2| %>
+          <%= f2.input :name %>
+        <% end %>
+
+        <%= f.submit 'Create Project', class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
